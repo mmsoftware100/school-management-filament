@@ -8,8 +8,8 @@ school management.
 - [x] user , roles (admin, teacher, role)
 - [x] subjects
 - [x] time table
-- [ ] exam
-- [ ] marks
+- [x] exam
+- [x] marks
 
 
 ## Bash
@@ -20,3 +20,8 @@ php artisan make:model TimeTable -mcs
 php artisan make:model Exam -mcs
 php artisan make:model Mark -mcs
 ```
+
+
+Filament Resource တွေ ထည့်ေပးပြီးရင် ပြီးပြီ။
+
+Admin Panel တစ်ခုရမယ်။
