@@ -1098,7 +1098,128 @@
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
-        
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Sticky Header on Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active Filter Button Toggle
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Here you would typically update the chart based on the selected filter
+                // For demonstration, we'll just log the selected filter
+                console.log(`Filter selected: ${button.textContent}`);
+            });
+        });
+
+        // Simple Chart Simulation (would be replaced with a real chart library in production)
+        const chartPlaceholder = document.querySelector('.chart-placeholder');
+        
+        // This is just a placeholder - in a real app you would use Chart.js, D3.js, etc.
+        function simulateChart() {
+            chartPlaceholder.innerHTML = `
+                <div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-end;">
+                    <div style="display: flex; height: 100%; align-items: flex-end; gap: 10px; padding: 0 20px;">
+                        <div style="flex: 1; background: #4a6fa5; height: 70%; position: relative;">
+                            <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%);">Math</span>
+                            <span style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%);">85%</span>
+                        </div>
+                        <div style="flex: 1; background: #166088; height: 85%; position: relative;">
+                            <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%);">Science</span>
+                            <span style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%);">92%</span>
+                        </div>
+                        <div style="flex: 1; background: #4fc3f7; height: 65%; position: relative;">
+                            <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%);">English</span>
+                            <span style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%);">78%</span>
+                        </div>
+                        <div style="flex: 1; background: #28a745; height: 80%; position: relative;">
+                            <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%);">History</span>
+                            <span style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%);">88%</span>
+                        </div>
+                        <div style="flex: 1; background: #ffc107; height: 75%; position: relative;">
+                            <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%);">Comp Sci</span>
+                            <span style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%);">82%</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 20px; color: var(--primary); font-weight: bold;">
+                        Average Performance Across Subjects
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize the chart simulation
+        simulateChart();
+
+        // Animation on Scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.role-card, .subject-card, .exam-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Set initial state for animated elements
+        document.querySelectorAll('.role-card, .subject-card, .exam-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+
+        // Run animation check on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Form submission handling (example)
+        const contactForm = document.createElement('form'); // This would be a real form in your HTML
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Current year for copyright
+        document.querySelector('.copyright').innerHTML = `&copy; ${new Date().getFullYear()} EduManage Pro. All rights reserved.`;
+    </script>
+</body>
+</html>
