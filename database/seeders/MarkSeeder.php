@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Exam;
+use App\Models\Mark;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +15,20 @@ class MarkSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        // Get all students
+        $students = User::where('role_id', 3)->get();
+
+        // Get all exams
+        $exams = Exam::all();
+
+        foreach ($students as $student) {
+            foreach ($exams as $exam) {
+                Mark::create([
+                    'student_id' => $student->id,
+                    'exam_id' => $exam->id,
+                    'marks_obtained' => rand(40, 100)
+                ]);
+            }
+        }
     }
 }
