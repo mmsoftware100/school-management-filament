@@ -7,7 +7,7 @@ school management.
 
 - [x] user , roles (admin, teacher, role)
 - [x] subjects
-- [ ] time table
+- [x] time table
 - [ ] exam
 - [ ] marks
 
@@ -17,4 +17,6 @@ school management.
 ```bash
 php artisan make:model Subject -mcs
 php artisan make:model TimeTable -mcs
+php artisan make:model Exam -mcs
+php artisan make:model Mark -mcs
 ```
