@@ -16,7 +16,9 @@ class SubjectSeeder extends Seeder
         Subject::insert([
             ['id'=>1, 'name' => 'English'],
             ['id'=>2, 'name' => 'Mathematics'],
-            ['id'=>3, 'name' => 'Science']
+            ['id'=>3, 'name' => 'Science'],
+            ['id'=>4, 'name' => 'History'],
+            ['id'=>5, 'name' => 'Geography'],
         ]);
     }
 }
