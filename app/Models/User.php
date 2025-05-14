@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -21,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
@@ -42,4 +45,45 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    /**
+     * Role relationship (admin, teacher, student)
+     */
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    /**
+     * Marks relationship (only applies if this is a student)
+     */
+    public function marks(): HasMany
+    {
+        return $this->hasMany(Mark::class, 'student_id');
+    }
+
+
+    /**
+     * Check if user is a student
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role_id === 1;
+    }
+
+    /**
+     * Check if user is a student
+     */
+    public function isTeacher(): bool
+    {
+        return $this->role_id === 2;
+    }
+    /**
+     * Check if user is a student
+     */
+    public function isStudent(): bool
+    {
+        return $this->role_id === 3;
+    }
 }
