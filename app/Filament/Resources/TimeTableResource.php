@@ -20,6 +20,9 @@ class TimeTableResource extends Resource
     protected static ?string $model = TimeTable::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Education Management';
+    protected static ?string $label = 'Time Table';
+    protected static ?int $navigationSort = 2200;
 
     public static function form(Form $form): Form
     {

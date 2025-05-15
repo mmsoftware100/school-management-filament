@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Exam;
 use App\Models\Subject;
 use App\Models\User;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
@@ -19,6 +20,7 @@ class SchoolOverview extends BaseWidget
             Stat::make('Teachers', User::where('role_id', 2)->count()),
             Stat::make('Students', User::where('role_id', 3)->count()),
             Stat::make('Subjects', Subject::all()->count()),
+            Stat::make('Exams', Exam::all()->count()),
         ];
     }
 }

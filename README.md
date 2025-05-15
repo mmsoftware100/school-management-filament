@@ -36,3 +36,7 @@ php artisan make:filament-resource TimeTable
 php artisan make:filament-resource Exam
 php artisan make:filament-resource Mark
 ```
+
+
+
+php artisan make:filament-widget SchoolOverview --stats-overview

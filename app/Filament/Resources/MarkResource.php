@@ -19,6 +19,10 @@ class MarkResource extends Resource
     protected static ?string $model = Mark::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    
+    protected static ?string $navigationGroup = 'Performance Management';
+    protected static ?string $label = 'Mark';
+    protected static ?int $navigationSort = 3200;
 
     public static function form(Form $form): Form
     {
