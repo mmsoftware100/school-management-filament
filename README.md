@@ -25,3 +25,14 @@ php artisan make:model Mark -mcs
 Filament Resource တွေ ထည့်ေပးပြီးရင် ပြီးပြီ။
 
 Admin Panel တစ်ခုရမယ်။
+
+
+## Resource Collection
+
+```bash
+php artisan make:filament-resource User
+php artisan make:filament-resource Subject
+php artisan make:filament-resource TimeTable
+php artisan make:filament-resource Exam
+php artisan make:filament-resource Mark
+```
