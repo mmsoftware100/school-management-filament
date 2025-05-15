@@ -40,3 +40,10 @@ php artisan make:filament-resource Mark
 
 
 php artisan make:filament-widget SchoolOverview --stats-overview
+
+
+https://github.com/mmsoftware100/school-management-filament
+
+
+sudo chown -R ubuntu:www-data /var/www/html/mdemy
+sudo chmod -R 775 /var/www/html/mdemy
