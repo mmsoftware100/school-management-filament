@@ -19,12 +19,13 @@ class ExamSeeder extends Seeder
 
         $startDate = Carbon::parse('2025-06-01');
 
+        $now = Carbon::now();
         foreach ($subjectIds as $index => $subjectId) {
             foreach ($examTypes as $typeIndex => $type) {
                 Exam::create([
                     'name' => $type,
                     'date' => $startDate->copy()->addDays($index * 5 + $typeIndex),
-                    'subject_id' => $subjectId,
+                    'subject_id' => $subjectId
                 ]);
             }
         }

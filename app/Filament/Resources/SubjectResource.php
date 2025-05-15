@@ -37,6 +37,8 @@ class SubjectResource extends Resource
             ->columns([
                 TextColumn::make('serial_no')->label('No.')->rowIndex(),
                 TextColumn::make('name')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('updated_at')->dateTime()->label('Updated'),
+                Tables\Columns\TextColumn::make('created_at')->dateTime()->label('Created'),
             ])
             ->filters([
                 //
