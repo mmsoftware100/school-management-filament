@@ -19,7 +19,7 @@ class MarkResource extends Resource
     protected static ?string $model = Mark::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    
+
     protected static ?string $navigationGroup = 'Performance Management';
     protected static ?string $label = 'Mark';
     protected static ?int $navigationSort = 3200;
@@ -30,14 +30,27 @@ class MarkResource extends Resource
             ->schema([
                 Forms\Components\Select::make('student_id')
                     ->label('Student')
-                    ->relationship('student', 'name') // assuming User model has a 'name' field
+                    // ->relationship('student', 'name') // assuming User model has a 'name' field
+                    ->relationship(
+                        name: 'student',
+                        titleAttribute: 'name',
+                        modifyQueryUsing: fn($query) => $query->where('role_id', 3)
+                    )
                     ->searchable()
+                    ->preload()
                     ->required(),
 
                 Forms\Components\Select::make('exam_id')
                     ->label('Exam')
-                    ->relationship('exam', 'name') // assuming Exam model has a 'title' field
+                    // ->relationship('exam', 'name') // assuming Exam model has a 'title' field
+                    ->relationship(
+                        name: 'exam',
+                        titleAttribute: 'name',
+                        modifyQueryUsing: fn($query) => $query->orderByDesc('date')
+                    )
+                    ->getOptionLabelFromRecordUsing(fn ($record) => "{$record->date} - {$record->name} - {$record->subject->name}")
                     ->searchable()
+                    ->preload()
                     ->required(),
 
                 Forms\Components\TextInput::make('marks_obtained')

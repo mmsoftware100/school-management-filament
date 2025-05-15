@@ -26,7 +26,7 @@ class MarkSeeder extends Seeder
                 Mark::create([
                     'student_id' => $student->id,
                     'exam_id' => $exam->id,
-                    'marks_obtained' => rand(40, 100)
+                    'marks_obtained' => rand(40, 100),
                 ]);
             }
         }
