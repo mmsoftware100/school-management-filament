@@ -640,7 +640,7 @@
                 <p>EduManage Pro is a comprehensive solution designed to simplify school administration, enhance teaching, and improve student learning experiences.</p>
                 <div class="hero-btns">
                     <a href="#" class="btn">Get Started</a>
-                    <a href="#" class="btn btn-outline">Login</a>
+                    <a href="/admin" class="btn btn-outline">Login</a>
                 </div>
             </div>
         </div>
