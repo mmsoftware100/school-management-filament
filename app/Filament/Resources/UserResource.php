@@ -56,6 +56,7 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('serial_no')->label('No.')->rowIndex(),
                 TextColumn::make('name')->searchable()->sortable(),
                 TextColumn::make('email')->searchable()->sortable(),
                 TextColumn::make('role.name')->label('Role')->sortable(),
