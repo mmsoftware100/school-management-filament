@@ -47,3 +47,10 @@ https://github.com/mmsoftware100/school-management-filament
 
 sudo chown -R ubuntu:www-data /var/www/html/mdemy
 sudo chmod -R 775 /var/www/html/mdemy
+
+
+## Next Step
+
+- [ ] API ထုတ်ပ‌ေးရန်။
+- [ ] React Frontend ရေးရန်။ for public , for teacher , for student
+- 
