@@ -15,10 +15,41 @@ school management.
 ## Bash
 
 ```bash
+
+composer create-project laravel/laravel project-name
+
+
+php artisan serve
+
+
+composer require filament/filament:"^3.3" -W
+
+php artisan filament:install --panels
+
+
+# db setup
+
+php artisan migrate
+
+
 php artisan make:model Subject -mcs
 php artisan make:model TimeTable -mcs
 php artisan make:model Exam -mcs
 php artisan make:model Mark -mcs
+
+
+php artisan db:seed --class=SubjectSeeder
+php artisan db:seed --class=TimeTableSeeder
+php artisan db:seed --class=ExamSeeder
+php artisan db:seed --class=MarkSeeder
+
+
+
+
+# migration , model, seeder , controller 
+
+
+
 ```
 
 
